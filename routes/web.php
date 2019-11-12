@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('authors', function (){
+    return view('author-list');
+})->name('authors');
+
+Route::get('books', function (){
+    return view('book-list');
+})->name('books');

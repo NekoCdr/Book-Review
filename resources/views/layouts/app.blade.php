@@ -14,9 +14,9 @@
     <body>
         <header>
             <nav class="top-nav">
-                <a>{{ __('main.pages.index') }}</a>
-                <a>{{ __('main.pages.authors') }}</a>
-                <a>{{ __('main.pages.books') }}</a>
+                <a href="{{ url('/') }}">{{ __('main.pages.index') }}</a>
+                <a href="{{ route('authors') }}">{{ __('main.pages.authors') }}</a>
+                <a href="{{ route('books') }}">{{ __('main.pages.books') }}</a>
             </nav>
         </header>
         <main>

@@ -24,7 +24,7 @@
                     </div>
                 </a>
             @endforeach
-            <a class="full-list-link">&gt; {{ __('index.all_authors') }} &lt;</a>
+            <a href="{{ route('authors') }}" class="full-list-link">&gt; {{ __('index.all_authors') }} &lt;</a>
         </div>
         <div class="list twin-list">
             <span class="list-title">{{ __('index.latest_books') }}</span>
@@ -39,7 +39,7 @@
                     </div>
                 </a>
             @endforeach
-            <a class="full-list-link">&gt; {{ __('index.all_books') }} &lt;</a>
+            <a href="{{ route('books') }}" class="full-list-link">&gt; {{ __('index.all_books') }} &lt;</a>
         </div>
     </div>
 @endsection
