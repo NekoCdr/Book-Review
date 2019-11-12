@@ -5,7 +5,7 @@
 @section('content')
     <table style="max-width: 600px;">
         <tr>
-            <td>{{ __('book.title') }}}:</td>
+            <td>{{ __('book.title') }}:</td>
             <td style="font-weight: bold">{{ $book->title }}</td>
         </tr>
         <tr>
