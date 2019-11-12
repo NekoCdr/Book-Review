@@ -22,3 +22,7 @@ Route::get('authors', function (){
 Route::get('books', function (){
     return view('book-list');
 })->name('books');
+
+Route::get('authors/{id}', 'AuthorController@show')->name('author-info');
+
+Route::get('books/{id}', 'BookController@show')->name('book-info');

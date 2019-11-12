@@ -14,7 +14,7 @@
         <div class="list twin-list">
             <div class="list-title">{{ __('index.latest_authors') }}</div>
             @foreach(\App\Author::all()->sortByDesc('id')->take(5) as $author)
-                <a class="list-element">
+                <a href="{{ route('author-info', $author->id) }}" class="list-element">
                     <div class="list-element-text">{{ $author->first_name }} {{ $author->last_name }}</div>
                     <div class="list-relationship-quantity">
                         <div class="quantity-number">
@@ -29,7 +29,7 @@
         <div class="list twin-list">
             <span class="list-title">{{ __('index.latest_books') }}</span>
             @foreach(\App\Book::all()->sortByDesc('id')->take(5) as $book)
-                <a class="list-element">
+                <a href="{{ route('book-info', $book->id) }}" class="list-element">
                     <div class="list-element-text">{{ $book->title }}</div>
                     <div class="list-relationship-quantity">
                         <div class="quantity-number">
