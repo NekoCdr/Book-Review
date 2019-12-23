@@ -1,0 +1,32 @@
+{
+    "name": "intro94/lightwork",
+    "description": "A toolkit for quick launch sites",
+    "type": "project",
+    "require": {
+        "eftec/bladeone": "^3.31@dev",
+      "ext-json": "*",
+        "fzaninotto/faker": "^1.9@dev",
+        "illuminate/database": "^7.0@dev",
+        "vlucas/phpdotenv": "^4.1@dev",
+        "illuminate/http": "^7.0@dev",
+        "illuminate/routing": "^7.0@dev",
+        "illuminate/events": "^7.0@dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yuri Istomin",
+            "email": "intro1994@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "System\\": "system/"
+        },
+        "files": [
+            "system/GeneralFunctions.php"
+        ]
+    },
+    "minimum-stability": "dev"
+}
