@@ -1,0 +1,81 @@
+.list
+    display: flex
+    flex-direction: column
+    border: 1px solid #6b6b6b
+    border-radius: 10px
+
+.twin-list
+    flex: 1 1 0
+    width: 100%
+    max-width: 500px
+    min-width: 300px
+    margin: 20px
+
+.big-list
+    width: 100%
+    min-width: 300px
+    max-width: 1000px
+    margin: auto
+
+.list-title, .full-list-link
+    width: 100%
+    height: 51px
+    line-height: 50px
+    font-size: 35px
+    text-align: center
+    color: #636b6f
+    border-bottom: 1px solid #6b6b6b
+
+.full-list-link
+    margin-top: auto
+    font-size: 18px
+    font-weight: 600
+    letter-spacing: .1rem
+    text-decoration: none
+    text-transform: uppercase
+    border-top: 1px solid #6b6b6b
+    border-bottom: none
+
+    &:hover
+        color: #f00
+
+.list-element
+    display: flex
+    width: 100%
+    height: 70px
+    padding: 5px 10px
+
+    .list-element-text
+        height: 60px
+        line-height: 60px
+        padding-right: 5px
+        font-size: 22px
+
+    .list-relationship-quantity
+        display: flex
+        flex-direction: column
+        justify-content: center
+        width: 60px
+        height: 60px
+        margin-left: auto
+
+        .quantity-number
+            height: 25px
+            margin: 0 auto
+            line-height: 25px
+            font-size: 18px
+
+        .quantity-caption
+            height: 15px
+            margin: 0 auto
+            line-height: 15px
+            font-size: 12px
+
+    &:nth-child(2n)
+        background: #d3d3d3
+
+a.list-element:hover .list-element-text
+    color: #f00
+    font-size: 21px
+    font-weight: 600
+    letter-spacing: .05rem
