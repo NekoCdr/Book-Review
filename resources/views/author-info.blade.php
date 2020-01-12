@@ -3,10 +3,10 @@
 @section('title', __('main.pages.authors'))
 
 @section('content')
-    <table>
+    <table style="max-width: 600px;">
         <tr>
-            <td>{{ __('author.first_name') }}:</td>
-            <td>{{ $author->first_name }}</td>
+            <td style="width: 100px;">{{ __('author.first_name') }}:</td>
+            <td style="width: 494px;">{{ $author->first_name }}</td>
         </tr>
         <tr>
             <td>{{ __('author.last_name') }}:</td>
@@ -19,16 +19,20 @@
     </table>
     <div style="width: 100%; margin: 10px 0; font-size: 18px; font-weight: bold;">{{ __('main.book_list') }}:</div>
     <div class="list big-list">
-        @foreach($books as $book)
-            <a href="{{ route('book-info', $book->id) }}" class="list-element">
+        @forelse($author->books->sortBy('id') as $book)
+            <a href="{{ route('book.info', $book->id) }}" class="list-element">
                 <div class="list-element-text">{{ $book->title }}</div>
                 <div class="list-relationship-quantity">
                     <div class="quantity-number">
-                        {{ \App\Comment::all()->where('book_id', $book->id)->count() }}
+                        {{ $book->commentaries->count() }}
                     </div>
                     <div class="quantity-caption">{{ __('index.caption_comments') }}</div>
                 </div>
             </a>
-        @endforeach
+        @empty
+            <div class="list-element">
+                <div class="list-element-text" style="width: 100%; text-align: center;">{{ __('Books not found') }}</div>
+            </div>
+        @endforelse
     </div>
 @endsection

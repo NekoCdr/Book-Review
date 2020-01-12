@@ -12,6 +12,9 @@ class Author extends Model
      */
     public $timestamps = false;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function books()
     {
         return $this->hasMany(Book::class);

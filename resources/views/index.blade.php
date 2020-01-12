@@ -13,33 +13,41 @@
     <div class="latest-entries">
         <div class="list twin-list">
             <div class="list-title">{{ __('index.latest_authors') }}</div>
-            @foreach(\App\Author::all()->sortByDesc('id')->take(5) as $author)
-                <a href="{{ route('author-info', $author->id) }}" class="list-element">
+            @forelse(\App\Author::all()->sortByDesc('id')->take(5) as $author)
+                <a href="{{ route('author.info', $author->id) }}" class="list-element">
                     <div class="list-element-text">{{ $author->first_name }} {{ $author->last_name }}</div>
                     <div class="list-relationship-quantity">
                         <div class="quantity-number">
-                            {{ \App\Book::all()->where('author_id', $author->id)->count() }}
+                            {{ $author->books->count() }}
                         </div>
                         <div class="quantity-caption">{{ __('index.caption_books') }}</div>
                     </div>
                 </a>
-            @endforeach
-            <a href="{{ route('authors') }}" class="full-list-link">&gt; {{ __('index.all_authors') }} &lt;</a>
+                @empty
+                    <div class="list-element">
+                        <div class="list-element-text" style="width: 100%; text-align: center;">{{ __('No authors') }}</div>
+                    </div>
+                @endforelse
+            <a href="{{ route('author.list') }}" class="full-list-link">&gt; {{ __('index.all_authors') }} &lt;</a>
         </div>
         <div class="list twin-list">
             <span class="list-title">{{ __('index.latest_books') }}</span>
-            @foreach(\App\Book::all()->sortByDesc('id')->take(5) as $book)
-                <a href="{{ route('book-info', $book->id) }}" class="list-element">
+            @forelse(\App\Book::all()->sortByDesc('id')->take(5) as $book)
+                <a href="{{ route('book.info', $book->id) }}" class="list-element">
                     <div class="list-element-text">{{ $book->title }}</div>
                     <div class="list-relationship-quantity">
                         <div class="quantity-number">
-                            {{ \App\Comment::all()->where('book_id', $book->id)->count() }}
+                            {{ $book->commentaries->count() }}
                         </div>
                         <div class="quantity-caption">{{ __('index.caption_comments') }}</div>
                     </div>
                 </a>
-            @endforeach
-            <a href="{{ route('books') }}" class="full-list-link">&gt; {{ __('index.all_books') }} &lt;</a>
+                @empty
+                    <div class="list-element">
+                        <div class="list-element-text" style="width: 100%; text-align: center;">{{ __('No books') }}</div>
+                    </div>
+                @endforelse
+            <a href="{{ route('book.list') }}" class="full-list-link">&gt; {{ __('index.all_books') }} &lt;</a>
         </div>
     </div>
 @endsection

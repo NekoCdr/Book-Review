@@ -10,7 +10,7 @@
         </tr>
         <tr>
             <td>{{ __('book.author') }}:</td>
-            <td><a href="{{ route('author-info', $author->id) }}" style="color: blue; font-weight: bold;">{{ $author->first_name }} {{ $author->last_name }}</a></td>
+            <td><a href="{{ route('author.info', $book->author->id) }}" style="color: blue; font-weight: bold;">{{ $book->author->first_name }} {{ $book->author->last_name }}</a></td>
         </tr>
         <tr>
             <td style="vertical-align: top;">{{ __('book.description') }}:</td>
