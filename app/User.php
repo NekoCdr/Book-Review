@@ -47,4 +47,12 @@ class User extends Model
     {
         return $this->hasMany(EntryPoint::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function commentaries()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

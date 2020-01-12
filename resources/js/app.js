@@ -63,4 +63,29 @@ $(function ()
         let comment_id = $(this).attr('data-id');
         send_post(route_comment_delete, {'comment_id': comment_id})
     });
+
+    $('.btn-edit').click(function ()
+    {
+        $('.edited-data').prop('disabled', false);
+        $('.btn-edit').hide();
+        $('.btn-save').show();
+        $('.btn-cancel').show();
+    });
+
+    $('.btn-cancel').click(function ()
+    {
+        window.location.reload()
+    });
+
+    $('.profile-save').click(function ()
+    {
+        let data = {
+            'last_name':  $('#last_name').val(),
+            'first_name': $('#first_name').val(),
+            'email':      $('#email').val(),
+            'birthday':   $('#birthday').val()
+        };
+
+        send_post(route_profile_update, data)
+    });
 });

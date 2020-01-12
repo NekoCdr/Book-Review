@@ -21,6 +21,9 @@
                 <a href="{{ url('/') }}">{{ __('main.pages.index') }}</a>
                 <a href="{{ route('author.list') }}">{{ __('main.pages.authors') }}</a>
                 <a href="{{ route('book.list') }}">{{ __('main.pages.books') }}</a>
+                @auth
+                    <a href="{{ route('user') }}">{{ __('User') }}</a>
+                @endauth
                 <div class="auth-block">
                     @guest
                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
