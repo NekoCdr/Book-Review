@@ -11,6 +11,16 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * @var int
+     */
+    const USER_TYPE  = 1;
+
+    /**
+     * @var int
+     */
+    const ADMIN_TYPE = 2;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
