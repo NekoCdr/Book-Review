@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Author;
 use App\Book;
+use App\Comment;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    public function show($id)
+    /**
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function bookInfo(int $id)
     {
         $book = Book::findOrFail($id);
         $view_data = [
             'book' => $book,
-            'author' => Author::find($book->author_id),
+            'comments_tree' => Comment::getCommentsTree($book->id)
         ];
         return view('book-info', $view_data);
     }
