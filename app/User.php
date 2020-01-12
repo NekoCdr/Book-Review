@@ -2,11 +2,14 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+/**
+ * Class User
+ * @package App
+ */
+class User extends Model
 {
     use Notifiable;
 
@@ -28,4 +31,20 @@ class User extends Authenticatable
     protected $fillable = [
         'email', 'first_name', 'last_name', 'birth_date',
     ];
+
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->type === self::ADMIN_TYPE;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function entryPoints()
+    {
+        return $this->hasMany(EntryPoint::class);
+    }
 }
