@@ -21,7 +21,7 @@ class CreateBooksTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
         });
     }
 
