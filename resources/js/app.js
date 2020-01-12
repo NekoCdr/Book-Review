@@ -88,4 +88,83 @@ $(function ()
 
         send_post(route_profile_update, data)
     });
+
+    $('.book-delete').click(function ()
+    {
+        send_post(route_book_delete, {'book_id': book_id});
+    });
+
+    $('.author-delete').click(function ()
+    {
+        send_post(route_author_delete, {'author_id': author_id});
+    });
+
+    $('.author-save').click(function ()
+    {
+        let data = {
+            'author_id':  author_id,
+            'last_name':  $('#last_name').val(),
+            'first_name': $('#first_name').val(),
+            'birthday':   $('#birthday').val()
+        };
+
+        send_post(route_author_update, data)
+    });
+
+    $('.book-edit').click(function ()
+    {
+        $('#description-text').hide();
+        $('#description-area').show();
+        $('.edited-data').prop('disabled', false);
+        $('.book-edit').hide();
+        $('.book-save').show();
+        $('.book-cancel').show();
+    });
+
+    $('.book-save').click(function ()
+    {
+        let data = {
+            'book_id':     book_id,
+            'author_id':   $('#author_id option:selected').val(),
+            'title':       $('#title').val(),
+            'description': $('#description-area').val(),
+        };
+
+        send_post(route_book_update, data)
+    });
+
+    $('.author-create').click(function ()
+    {
+        let data = {
+            'last_name':  $('#last_name').val(),
+            'first_name': $('#first_name').val(),
+            'birthday':   $('#birthday').val()
+        };
+
+        send_post(route_author_create, data)
+    });
+
+    $('.book-create').click(function ()
+    {
+        let data = {
+            'author_id':   $('#author_id option:selected').val(),
+            'title':       $('#title').val(),
+            'description': $('#description-area').val(),
+        };
+
+        send_post(route_book_create, data)
+    });
+
+    $('.user-update').click(function ()
+    {
+        let data = {
+            'user_id':    user_id,
+            'last_name':  $('#last_name').val(),
+            'first_name': $('#first_name').val(),
+            'email':      $('#email').val(),
+            'birthday':   $('#birthday').val()
+        };
+
+        send_post(route_profile_update, data)
+    });
 });

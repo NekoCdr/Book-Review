@@ -23,6 +23,9 @@
                 <a href="{{ route('book.list') }}">{{ __('main.pages.books') }}</a>
                 @auth
                     <a href="{{ route('user') }}">{{ __('User') }}</a>
+                    @if(auth()->user()->isAdmin())
+                        <a href="{{ route('admin.home') }}">{{ __('Admin') }}</a>
+                    @endif
                 @endauth
                 <div class="auth-block">
                     @guest
