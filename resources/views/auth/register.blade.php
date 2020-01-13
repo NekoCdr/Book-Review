@@ -44,6 +44,10 @@
             <div class="card-block">
                 <button type="submit" class="btn btn-full-width">{{ __('Register') }}</button>
             </div>
+            <div class="card-block">
+                <a href="{{ route('login.github') }}" class="btn">{{ __('GitHub') }}</a>&nbsp;&nbsp;
+                <a href="{{ route('login.google') }}" class="btn">{{ __('Google') }}</a>
+            </div>
         </form>
     </div>
 @endsection

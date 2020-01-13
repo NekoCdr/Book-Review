@@ -17,7 +17,7 @@ class CreateEntryPointsTable extends Migration
             $table->increments('id')->unique();
             $table->integer('user_id');
             $table->smallInteger('type');
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('login_name');
             $table->timestamps();
             $table->softDeletes();

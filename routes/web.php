@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('home', function ()
+{
+    return redirect('/');
+});
+
 Route::get('/', function ()
 {
     return view('index');
@@ -90,6 +95,16 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function ()
 
     Route::post('authors/create', 'AdminController@authorCreate')->name('author.create');
     Route::post('books/create', 'AdminController@bookCreate')->name('book.create');
+
+    Route::post('users/unlink', 'AdminController@unlinkSocial')->name('unlink.social');
 });
 
 Auth::routes();
+
+Route::get('login/github', 'Auth\SocialController@github')->name('login.github');
+Route::get('login/github/callback', 'Auth\SocialController@githubCallback');
+
+Route::get('login/google', 'Auth\SocialController@google')->name('login.google');
+Route::get('login/google/callback', 'Auth\SocialController@googleCallback');
+
+Route::post('user/unlink', 'UserController@unlinkSocial')->name('user.unlink.social');

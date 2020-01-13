@@ -11,6 +11,7 @@
     <script type="text/javascript">
         let route_profile_update = "{{ route('user.update') }}";
         let route_comment_delete = "{{ route('comment.delete') }}";
+        let route_unlink_social  = "{{ route('user.unlink.social') }}";
     </script>
 @endpush
 
@@ -41,6 +42,26 @@
             </td>
         </tr>
         @if(auth()->user()->user->id == $user->id)
+            <tr>
+                <td>{{ __('GitHub') }}</td>
+                <td>
+                    @if($user->entryPoints->where('type', \App\EntryPoint::GITHUB_REG)->first())
+                        <div class="btn social-unlink" social-type="{{ \App\EntryPoint::GITHUB_REG }}">{{ __('Unlink') }}</div>
+                    @else
+                        <a class="btn" href="{{ route('login.github') }}">{{ __('Link GitHub') }}</a>
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td>{{ __('Google') }}</td>
+                <td>
+                    @if($user->entryPoints->where('type', \App\EntryPoint::GOOGLE_REG)->first())
+                        <div class="btn social-unlink" social-type="{{ \App\EntryPoint::GOOGLE_REG }}">{{ __('Unlink') }}</div>
+                    @else
+                        <a class="btn" href="{{ route('login.google') }}">{{ __('Link Google') }}</a>
+                    @endif
+                </td>
+            </tr>
             <tr class="tr-button btn-edit">
                 <td colspan="2">
                     {{ __('Edit Info') }}

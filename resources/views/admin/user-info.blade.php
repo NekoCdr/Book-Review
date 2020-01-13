@@ -11,6 +11,7 @@
     <script type="text/javascript">
         let route_profile_update = "{{ route('admin.user.update') }}";
         let route_comment_delete = "{{ route('admin.comment.delete') }}";
+        let route_unlink_social  = "{{ route('admin.unlink.social') }}";
         let user_id = "{{ $user->id }}";
     </script>
 @endpush
@@ -39,6 +40,26 @@
             <td>{{ __('Birthday') }}:</td>
             <td style="font-weight: bold">
                 <input id="birthday" class="edited-data" type="date" value="{{ \Carbon\Carbon::parse($user->birth_date)->format('Y-m-d') }}" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>{{ __('GitHub') }}</td>
+            <td>
+                @if($user->entryPoints->where('type', \App\EntryPoint::GITHUB_REG)->first())
+                    <div class="btn admin-social-unlink" social-type="{{ \App\EntryPoint::GITHUB_REG }}">{{ __('Unlink') }}</div>
+                @else
+                    {{ __('Not linked') }}
+                @endif
+            </td>
+        </tr>
+        <tr>
+            <td>{{ __('Google') }}</td>
+            <td>
+                @if($user->entryPoints->where('type', \App\EntryPoint::GOOGLE_REG)->first())
+                    <div class="btn admin-social-unlink" social-type="{{ \App\EntryPoint::GOOGLE_REG }}">{{ __('Unlink') }}</div>
+                @else
+                    {{ __('Not linked') }}
+                @endif
             </td>
         </tr>
         <tr class="tr-button btn-edit">

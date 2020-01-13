@@ -17,6 +17,24 @@ class EntryPoint extends Authenticatable
     const NATIVE_REG = 1;
 
     /**
+     * @var int
+     */
+    const GITHUB_REG = 2;
+
+    /**
+     * @var int
+     */
+    const GOOGLE_REG = 3;
+
+    /**
+     * @var array
+     */
+    public static $oauth_names = [
+        self::GITHUB_REG => 'github',
+        self::GOOGLE_REG => 'google',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -24,6 +42,11 @@ class EntryPoint extends Authenticatable
     protected $fillable = [
         'user_id', 'type', 'password', 'login_name',
     ];
+
+    /**
+     * @var bool
+     */
+    protected $rememberTokenName = false;
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

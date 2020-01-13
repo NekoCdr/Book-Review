@@ -167,4 +167,14 @@ $(function ()
 
         send_post(route_profile_update, data)
     });
+
+    $('.social-unlink').click(function ()
+    {
+        send_post(route_unlink_social, {'type': $(this).attr('social-type')})
+    });
+
+    $('.admin-social-unlink').click(function ()
+    {
+        send_post(route_unlink_social, {'type': $(this).attr('social-type'), 'user_id': user_id})
+    });
 });

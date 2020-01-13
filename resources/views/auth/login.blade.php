@@ -26,6 +26,10 @@
                     <a class="label forgot-password" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
                 @endif
             </div>
+            <div class="card-block">
+                <a href="{{ route('login.github') }}" class="btn">{{ __('GitHub') }}</a>&nbsp;&nbsp;
+                <a href="{{ route('login.google') }}" class="btn">{{ __('Google') }}</a>
+            </div>
         </form>
     </div>
 @endsection
