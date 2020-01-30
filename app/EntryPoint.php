@@ -24,7 +24,7 @@ class EntryPoint extends Authenticatable
     /**
      * @var int
      */
-    const GOOGLE_REG = 3;
+    public const GOOGLE_REG = 3;
 
     /**
      * @var array
