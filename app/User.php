@@ -51,7 +51,7 @@ class User extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function commentaries()
+    public function comments()
         //нет такого слова!
     {
         return $this->hasMany(Comment::class);
